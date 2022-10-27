@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+
+
+
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            /* 
+            键盘事件：
+                1、onkeydown:
+                    -按键被按下
+                    如果一直按着某个按键不松手，事件会一直触发
+                    当onkeydown连续触发时，第一次和第二次之间的间隔时间会长一点，之后的时间会快很多
+                            是为了防止误操作的发生
+
+                2、onkeyup:
+                    -按键被松开
+
+
+
+                键盘事件一般都会绑定给一些可以获取到焦点的对象或者是document
+            */
+           document.onkeydown = function(event){
+
+            /* 
+            可以通过keycode来获取按键的编码
+                可以判断哪个键被按下
+            可以通过key来获取按键的键名
+                也就是可以读取键盘按的是哪个键
+            
+            还提供了以下几个属性：
+            altKey
+            ctrlKey
+            shiftKey
+                这三个键分别用来判断alt  ctrl  shift 是否被按下
+                    如果被按下，则返回true，否则返回false
+            */
+           /*
+           判断y是否被按下
+
+           if(event.key == "y")
+           {
+            alert("y键被按下");
+           }
+            
+           };
+           */
+
+
+           /* 
+           判断y 和control 是否被同时按下
+           */
+          if(event.key == "y" && event.ctrlKey)
+          {
+            alert("yes");
+          }
+           
+
+        //    document.onkeyup =function(){
+        //     alert("按键松开了");
+        //    }
+        };
+
+
+
+
+        /* 
+        获取input
+        */
+       var input = document.getElementsByTagName("input")[0];
+       input.onkeydown = function(event){
+        
+        /* 
+        使文本框不能输入数字
+        */
+
+        //方法1
+    //    if(event.keyCode >=48 && event.keyCode <= 57)
+    //    {
+    //     return false;
+    //    }
+
+
+        //方法2
+        // if(event.key >= 0 || event.key <= 9){
+        //     return false;
+        // }
+
+            
+        //方法3
+        if(event.key != /[0-9]/){
+            return false;
+        }
+        
+        //return false;//在文本框中输入内容属于默认行为，使用return语句，则取消默认行问，内容则无法显示
+       }
+    
+
+
+
+
+
+        };
+    </script>
+
+</head>
+
+<body>
+
+<input type="text"/>
+
+</body>
+
+</html>

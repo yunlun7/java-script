@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        通过关系运算可以比较两个值直接的大小关系
+            如果关系成立，则返回true，否则返回false
+            
+
+        数值情况：
+        > 大于号
+            判断符号左侧关系的值是否大于右侧
+            成立，返回true，不成立返回false
+
+        >=  大于等于号
+            判断符号左侧关系的值是否大于或等于右侧
+            成立，返回true，不成立返回false
+        
+        < 小于号
+            判断符号左侧关系的值是否小于右侧
+            成立，返回true，不成立返回false
+
+        <=  小于等于号
+            判断符号左侧关系的值是否小于或等于右侧
+            成立，返回true，不成立返回false
+
+        =  等于号
+
+        ==  相等运算
+            判断两个值是否相等
+            如果相等，则返回true，否则返回false
+            如果类型不同，则会先转换为相同的数据类型，在进行比较
+            NaN不和任何值相等，包括它本身
+                可以通过isNaN()函数来判断一个值是否等于NaN
+
+        !=  不相等
+            用来判断两个值是否不相等，如果不相等，则返回true，否则返回false
+            也会对数据类型进行自动转换，如果转换后相等它也会返回false
+
+        ===  全等
+            用来判断两个值是否全等，和相等类似。不同的是它不会自动进行类型转换
+            如果两个值的类型不同，直接返回false
+
+        !==  不全等
+            用来判断两个值是否不全等，和不等类似，不同的是它不会自动进行类型转换
+            如果两个值类型不相等，则返回true
+
+
+            
+
+        非数值情况：会将其转换为数字，然后在进行比较
+                    任何值与NaN做比较，都会返回false
+                    如果符号两边的值都是字符串，则不会将其转换位数字进行比较，而会分别将其转换为ASCCI编码
+                        并且是一位一位的进行比较，如果两位一样，则比较下一位。
+                        比较中文时，没有任何意义
+                        如果比较的两个字符串型的数字，可能会得到不可预期的结果，因此一定要进行转型！！！！
+        
+        
+        */
+
+        var a = 10;
+        console.log(a == "hello"); //false
+
+        var b =NaN;
+        console.log(b == NaN); //false
+
+        console.log(a === b); //false
+        console.log(null == undefined); //true
+        console.log(null === undefined); //false
+    </script>
+    
+
+</head>
+
+
+<body>
+
+    
+</body>
+</html>

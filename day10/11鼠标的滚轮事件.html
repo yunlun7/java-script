@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            
+           //获取box1
+           var box1 = document.getElementById("box1");
+
+           //为box1绑定一个鼠标滚轮滚动事件
+           /* 
+           onmousewheel()鼠标滚轮滚动的事件，会在滚轮滚动时被触发，不推荐使用
+           
+            2021年谷歌和火狐都可以使用onwheel属性
+           */
+           box1.onwheel = function(event){
+                event = event || window.event;
+                //判断鼠标滚轮滚动的方向
+                //event.deltaY可以获取鼠标滚动的方向
+                //向上滚为负，向下滚为正
+                //alert(event.deltaY);//上  -125  下  125
+                
+                /* 
+                当鼠标向下滚动时，box1变长
+                当鼠标向上滚动时，box1变短
+                */
+
+                // 判断鼠标滚动方向
+                if(event.deltaY > 0 || event.detail < 0){
+                    //向上滚，变长
+                    box1.style.height = box1.clientHeight + 10 +"px";
+                }
+                else{
+                    //向下滚，变短
+                    box1.style.height = box1.clientHeight - 10 +"px";
+                }
+                
+                /* 
+                使用addEventListener()方法绑定函数，取消默认行为时不能用return false
+                需要使用event来取消默认行为
+                */
+                event.preventDefault();
+
+                /* 
+                当滚动条滚动时，如果浏览器有滚动条，该滚动条会随之滚动，这是浏览器的默认行为
+                如果不希望发生，则取消默认行为
+                */
+            //    return false;
+               
+           };
+
+
+        };
+
+
+    </script>
+
+</head>
+
+<body style="height:2000px;">
+
+    <div id="box1"></div>
+
+</body>
+
+</html>

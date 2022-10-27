@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 820px;
+            height: 500px;
+            /* 居中 */
+            margin: 50px auto;
+            /* 设置背景颜色 */
+            background-color: rgb(145, 248, 248);
+            /* 设置padding */
+            padding: 10px 0;
+            /* 设置imgList */
+
+            /* 开启相对定位 */
+            position: relative;
+            /* 裁剪溢出的内容 ，将其藏起来*/
+            overflow: hidden;
+            
+        }
+        #imgList{
+            /* 设置项目符 */
+                list-style: none;
+            /* 设置ul宽度 */
+            /* width: 3600px; */
+
+            /* 开启绝对定位 */
+            position: absolute;
+
+            /* 设置偏移量
+                每向左移动820个像素单位，就会显示到下一张图片
+            */
+            left: -820px;
+
+            }
+            #imgList li{
+                /* 设置浮动 */
+                float: left;
+                /* 设置左右外边距 */
+                margin: 0 10px;
+            }
+            /* 设置导航按钮 */
+            #navDiv{
+                /* 开启绝对定位 */
+                position: absolute;
+
+                /* 设置位置 */
+                bottom: 15px;
+
+                /* 设置left值
+                    outer：宽度820
+                    a：100
+                        820 - 100 = 720
+                        因此left = 720 /2  = 360*/
+                /* left: 360px; */
+
+
+                /*  */
+
+            }
+            #navDiv a{
+                /* 设置超链接浮动 */
+                float: left;
+                width: 10px;
+                height: 10px;
+                background-color: rgb(90, 87, 87);
+                /* 设置左右外边距 */
+                margin: 0 5px;
+
+                /* 设置透明 */
+                opacity: 0.5;
+            }
+
+            /* 设置鼠标移入的效果 */
+            #navDiv a:hover{   
+                background-color: black;
+
+            }
+    </style>
+
+    <script>
+        window.onload = function () {
+            //设置imgList的宽度
+            //获取imgList
+            var imgList = document.getElementById("imgList");
+            
+
+            //获取页面中所有img标签
+            var imgs = document.getElementsByTagName("img");
+            //设置imgList的宽度
+            imgList.style.width = 820 * imgs.length + "px";
+
+
+
+            /* 设置导航按钮居中 */
+            //获取navDiv
+            var navDiv = document.getElementById("navDiv");
+            //获取outer
+            var outer = document.getElementById("outer");
+
+            //设置navDiv的left值
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px"; 
+
+
+            //默认显示图片的索引
+            var index = 0;
+
+            //获取所有的a，并设置第一张为默认效果
+            var allA = document.getElementsByTagName("a");
+            allA[index].style.backgroundColor = "black";
+
+          }
+    </script>
+</head>
+<body>
+    <!-- 创建外部的div -->
+    <div id="outer">
+        <!-- 创建ul，用来防止图片 -->
+        <ul id="imgList">
+            <li>
+                <img src="/JS/day12/img/01.jpg" width="800" height="500" >
+            </li>
+
+            <li>
+                <img src="/JS/day12/img/02.jpg"  width="800" height="500">
+            </li>
+
+            <li>
+                <img src="/JS/day12/img/03.jpg"  width="800" height="500">
+            </li>
+
+            <li>
+                <img src="/JS/day12/img/04.jpg"  width="800" height="500">
+            </li>
+        </ul>
+        <!-- 创建导航按钮 -->
+        <div id="navDiv">
+            <a href="javascprit:;"></a>
+            <a href="javascprit:;"></a>
+            <a href="javascprit:;"></a>
+            <a href="javascprit:;"></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        使用字面量来创建正则表达式
+            语法：var 变量 = /正则表达式/匹配模式
+        */
+
+        var reg = /a/i;
+        console.log(reg.test("acb"));
+
+        /*
+        创建一个正则表达式，检查一个字符串是否含有a或b
+            使用|表示或者的意思
+            使用[]也是表示或者的意思
+        */
+
+        var reg1 = /a|b|c/;
+        console.log(reg1.test("g"));
+
+        var reg2 = /[abcdefg]/;
+        console.log(reg2.test("cb"));
+
+
+        /* 
+        使用[a - z]表示从a到z的任意字符
+
+        */
+       var reg3 = /[a-z]/;
+       console.log(reg3.test("g"));
+
+
+       /* 
+       检查一个字符串是否含有abc或者adc或者aec
+       */
+      var reg4 = /a[bde]c/;
+      console.log(reg4.test("abc"));
+
+
+
+      /* 
+      使用[^]表示除了该列举出来的字符以外的字符
+
+      */
+     var reg5 = /[^ab]/;
+     console.log(reg5.test("a"));
+
+     /* 
+     匹配0-9之间的任意数字
+     */
+    var reg6 = /[0-9]/;
+    console.log(reg6.test(8));
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

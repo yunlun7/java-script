@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        属性名：
+            对象的属性名，不强制要求遵守标识符的规范
+                如果要使用特殊的属性名，不可使用.的方式来操作，需要使用另一种方式：
+                            语法：对象["属性名"] = 属性值，其中读取时也要采用该方式
+                                使用[]操作属性，更加灵活。并且这样变量值是多少，就会读取多少个属性
+
+        属性值：
+            可以是任意的数据类型，甚至也可以是一个对象
+
+
+
+        检查对象是否含有指定的属性：使用in 运算符
+            语法："属性名" in 对象
+        */
+
+        var obj = new  Object();
+        obj["123"] = 456;
+        console.log(obj["123"]);
+
+        obj["nin"] = "你好";
+        var n = "123";
+        console.log(obj["nin"]);
+        console.log(obj[n]);  //相当于字典，找到n对应的字符串，然后去找该属性，再返回属性值。所以返回的结果为456
+
+
+
+
+        obj.test=true;
+        var obj2 = new Object();
+        obj2.name = "花花";
+        obj.test = obj2;
+        console.log(obj.test.name);  //返回值为花花
+
+
+        console.log("name"in obj2); //返回值为true
+         
+
+    </script>
+
+</head>
+
+
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+            padding: 10px;
+            border: 10px solid yellow;
+        }
+        #box2{
+            padding: 300px;
+            background-color: blueviolet;
+        }
+        #box4{
+            width: 200px;
+            height: 200px;
+            background-color: darkorange;
+            overflow: auto;
+        }
+        #box5{
+            width: 600px;
+            height: 600px;
+            background-color: chartreuse;
+            /* 
+            overflow属性指定如果内容溢出一个元素的框，会发生什么
+                默认值：visible
+                描述：
+                    visible  默认值，内容不会被裁减，会呈现在元素框之外。
+                    hidden   内容会被裁减，并其余内容不可见
+                    scroll   内容会被裁减，但是浏览器会显示滚动条以便查看其余内容
+                    auto     如果内容被裁减，则浏览器会显示滚动条以查看其余内容
+                    inherit  规定应该从父元素继承 overflow
+                    ps：滚动条会占据15px的可视内容
+            */
+            
+        }
+    </style>
+    <script>
+        window.onload   = function(){
+            //获取btn01
+            var btn01 = document.getElementById("btn01");
+            //获取box1
+            var box1 = document.getElementById("box1");
+
+            //获取box4
+            var box4 = document.getElementById("box4");
+
+            //为按钮绑定单击响应函数
+            btn01.onclick = function(){
+                /* 
+                clientWidth:可以获取元素的可见宽度
+                clientHeight:可以获取元素的可见高度
+                    这些属性都是不带px的，返回的都是一个数字，可以直接进行计算
+                    会获取元素宽度和高度，包括内容区域和内边距
+                    只允许读取，而不能修改其属性
+                */
+               //alert(box1.clientHeight + "  "+box1.clientWidth);
+
+
+               /* 
+               offsetHeight
+               offsetWidth
+                获取元素的整个元素的高度和宽度，包括内容区、内边距和边框
+               */
+
+               //alert(box1.offsetHeight + "  " +box1.offsetWidth);   
+
+             /* 
+             offsetParent
+                获取当前元素的定位父亲元素
+                会获取到离当前元素最近的而开启了定位的祖先元素（就近原则）
+                    如果所有的祖先元素都，都没有开启定位元素，则返回body
+             */
+            //var op = box1.offsetParent;
+            //alert(op.id);
+
+
+            /* 
+            offsetLeft：当前元素相对于其定位父元素的水平偏移量
+            offsetTop：当前元素相对于其定位父亲元素的垂直偏移量
+            */
+            //alert(box1.offsetLeft +"  "+ box1.offsetTop);
+
+            //滚动条会占据15px的可视内容
+            //alert(box4.clientHeight);
+
+            /* 
+            scrollHeight
+            scrollWidth
+            可以获取元素整个滚动区域的宽度和高度
+            */
+            //alert(box4.scrollHeight + "  " + box4.scrollWidth);
+
+
+            /* 
+            scrollLeft：可以获取元素水平滚动的距离
+            scrollTop：可以获取元素垂直滚动的距离
+            */
+            //alert(box4.scrollLeft);
+
+            //alert(box4.clientHeight);//183
+            //alert(box4.scrollHeight);//600
+
+
+
+
+            /* 
+            当满足scrollHeight - scrollTop == clientHeight
+            说明垂直滚动条滚动到底了
+
+            当满足scrollWidth - scrollLeft == clientWidth
+            说明水平滚动条滚动到底了
+
+            可用于注册时，跳出来的用户服务协议，或其他的协议，又或者学习通中的文档阅读
+            来判断用户是否阅读完毕，只有当滚动条拖到底时，才可以说明阅读完毕
+            */
+            alert(box4.scrollHeight - box4.scrollTop);
+
+            };
+
+        };
+        
+    </script>
+
+</head>
+<body>
+    <button id="btn01">
+        点我一下
+    </button>
+    <br>
+    <br> 
+    <div id="box4">
+        <div id="box5"></div>
+    </div>
+    <br><br>
+    <div id="box3" style="position: relative;">
+        <div id="box2" style="position: relative;">
+            <div id="box1"></div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

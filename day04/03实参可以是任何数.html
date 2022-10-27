@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //判断偶数
+        function isO(num){
+            if(num % 2== 0){
+                console.log("该是偶数");
+            }
+            else{
+                console.log("该不是偶数");
+            }
+        }
+
+        isO(2);
+
+
+        //计算圆的面积
+        function circle(r,PI){
+            var area =r*r*PI;
+            return area;
+        }
+
+        var PI =3.14;
+        var r = 5;
+        var area = circle(r,PI);
+        console.log("圆的面积为：" + area);
+
+
+        //输出个人信息
+        function SayHello(o){
+            console.log("我是" + o.name +"今年" + o.age + "岁" + "我是" + o.gender + "生" + "我住在" + o.address);
+
+        }
+        //SayHello("花花",18,"女","草原上");//这种形式只适合少数组数据的，当需要传多组数据时，就会不方便，且参数顺序也不能乱套。因此采用对象的方法解决此问题
+
+        var obj = {
+            name:"xi li",
+            age:19,
+            gender:"男",
+            address:"青青草原"
+
+        };
+
+        SayHello(obj);
+
+
+        /* 
+        实参可以是任意的值，可以是对象，也可以是函数
+        实际开发中常用匿名函数作为参数
+
+
+
+        函数名()
+            -调用函数
+            -相当于使用函数的返回值
+        
+        函数名
+            -函数对象
+            -相当于直接使用函数对象
+        */
+
+        function fu(a){
+            //console.log(a);输出SayHello函数的结构
+            a(obj);//执行该SayHello函数
+        }
+
+        fu(SayHello);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

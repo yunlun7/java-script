@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /* 
+        一元运算符：只需要一个操作数
+            + 正号
+            - 符号
+        */
+
+        var a = 123;
+        a = +a;
+        console.log("a = " + a);  //结果为 123
+ 
+
+        a = -a;
+        console.log("a = " + a);  //结果为-123
+
+
+
+        a = true;
+        a = -a;
+        console.log("a = " + a, typeof a);  //结果为-1
+
+
+        a = "18";
+        a = +a;
+        console.log("a = " + a,typeof a);  //结果等于18，数据类型为number
+
+
+        a = 1 + +"2" + 3;  //此处的+"2"要与前面的+加以空格隔开！！！
+        console.log("a = " + a,typeof a);  //结果等于6，数据类型为number
+    </script>
+
+</head>
+
+
+
+<body>
+    
+</body>
+</html>

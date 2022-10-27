@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var obj1 = {
+            name:"孙悟空",
+            age:18,
+            gender:"男",
+            sayName:function(){
+                alert(this.name);
+            }
+        }
+
+        /* 
+        使用工厂方法来创建对象：
+
+        */
+        function createPerson(name,age,gender){
+            //创建对象
+            var obj = new Object();
+
+            //向对象中添加属性
+            obj.name=name;
+            obj.age=age;
+            obj.gender=gender;
+            obj.sayName=function(){
+                alert(this.name);
+            }
+
+
+            return obj; 
+        }
+
+        var obj2 = createPerson("猪八戒",34,"男");
+        var obj3 = createPerson("孙悟空",35,"男");
+        var obj4 = createPerson("沙和尚",36,"男");
+        console.log(obj2);
+        console.log(obj3);
+        console.log(obj4);
+
+
+
+
+
+
+
+
+
+        // var obj2 = {
+        //     name:"猪八戒",
+        //     age:28,
+        //     gender:"男",
+        //     sayName:function(){
+        //         alert(this.name);
+        //     }
+        // }
+
+        // var obj3 = {
+        //     name:"沙僧",
+        //     age:19,
+        //     gender:"男",
+        //     sayName:function(){
+        //         alert(this.name);
+        //     }
+        // }
+
+       // obj.sayName();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        原型 prototype
+            创建的每一个函数，解析器都会向函数中添加一个属性prototype
+                这个属性对应一个对象，而此对象就是原型对象
+            如果函数作为普通函数调用prototype没有任何作用
+            当函数以构造函数的形式调用时，它所创建的对象中都会有一个隐含属性，
+                    指向该构造函数的原型对象，可以通过__proto__来访问该属性(注意是两个双下划线！！！)
+
+
+        */
+       function MyClass(){
+
+       }
+       var mc = new MyClass();
+
+
+       console.log(MyClass.prototype);
+
+       console.log(mc.__proto__);
+
+       console.log(mc.__proto__  == MyClass.prototype);
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

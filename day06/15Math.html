@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        /* 
+        Math:
+            Math和其它对象不同，它不是一个构造函数
+                它属于一个工具类不用创建对象，它里边封装了数学运算相关的属性和方法
+
+        */
+        console.log(Math);
+
+       console.log(Math.PI);
+       console.log(Math.E);
+       console.log(Math.abs(-10));
+       console.log(Math.abs(10));
+       console.log(Math.ceil(1.3));//可以对一个数进行向上取整，只要小数部分有数，就向上取整
+       console.log(Math.floor(1.66));//可以对一个数进行向下取整，小数部分会被舍掉
+       
+       //对一个数进行四舍五入取整
+       console.log(Math.round(1.4));
+       console.log(Math.round(1.7));
+
+       console.log(Math.random());//产生一个0-1之间的随机数
+
+       /* 
+        生成一个0-X的随机数
+            语法：Math.round(Math.random()*X)
+
+        生成一个X-Y之间的随机数
+            语法：Math.round(Math.random()*(Y-X)+X)
+       */
+       console.log(Math.round(Math.random()*20));
+
+       console.log("生成一个1-6的数："+Math.round(Math.random()*5+1));
+
+       var max = Math.max(10,45,23,12,9);
+       var min = Math.min(10,45,23,12,9);
+       console.log(max,min);
+
+       var pow = Math.pow(12,3);//返回X的Y此幂
+       console.log(pow);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

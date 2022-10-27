@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        类型转换主要有：String,Number,Boolean
+
+
+        1、将其他的数据转换成String
+            -方法1：调用被转换数据类型的toString()方法，不会改变原变量，只会将转换结果返回
+                    null和undefined没有toString方法，因此调用他们的这个方法会报错
+            -方法2：调用String()函数，并将被转换的数据作为参数传递给函数
+                对于Number和Boolean调用String函数，实际上就是使用toString()方法
+                对于null和undefined，就不会调用toString()方法
+                    它会将null 直接转换为"null"
+                    将undefined，直接转换为"undefined"
+
+        */
+        var a = 10;
+        //调用a的toString方法
+        a.toString();
+        console.log(a,typeof a); 
+        //调用b的toString方法，并赋值给c
+        var b = 12;
+        var c = b.toString();
+        console.log(c,typeof c);  
+        //调用d的toString方法，并赋值给d
+        var d = 100;
+        d = d.toString();
+        console.log(d,typeof d); 
+
+
+        var e = 123;
+        e = String(e);
+        console.log(e,typeof e);
+    </script>
+
+
+
+</head>
+
+
+<body>
+    
+</body>
+</html>

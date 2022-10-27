@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        检查一个字符串中是否含有一个.
+        . 表示任意字符
+        需要使用转义字符,使用\.来表示一个.
+        \\ 表示一个\
+        */
+       var reg = /\./;
+       console.log(reg.test("."));
+
+       reg =/\\/;
+       console.log(reg.test("\\"));
+
+
+       /* 
+       \w：任意字母、数字、_   [A-z0-9_]
+       \W：除了数字、字母、_   [^A-z0-9_]
+       \d：任意的数字   [0-9]
+       \D：除了数字  [^0-9]
+       \s：空格
+       \S：除了空格
+       \b：单词边界
+       \B：除了单词边界
+       */
+
+       reg = /\bchild\b/;
+       console.log(reg.test("hello children"));
+
+
+       /* 
+       接受用户的输入：
+        
+       */
+    //   var str = prompt("请输入你的用户名：");
+    //   console.log(str);
+
+    str = "    ad  min   ";
+      //去除掉字符串中开头和结尾的空格
+      str = str.replace(/^\s*|\s*$/g,"");
+      console.log(str);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

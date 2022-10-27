@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        逻辑运算符（布尔值的情况）：
+            ！  非运算
+                    对任意的数据类型进行两次取反运算，可以转换为布尔值类型
+
+            &&  与运算
+                    两个值只要有一个值为false，就会返回false
+                        只有两个值都为true时，才会返回true
+                    在js中属于短路与，如果第一个值为false，则不会看第二个值
+
+            ||  或运算
+                    两个都是false，则返回false
+                    只要有一个true，就返回true
+                    在js中属于短路或，如果第一个值为true，则不会检查第二个值
+
+
+        逻辑运算符（非布尔值的情况）：
+            &&  与运算
+                    会先将其转换为布尔值，在进行运算，并且返回原值
+                    如果第一个值为true，则返回第二个的值
+                    如果两个值中有false，且第一个值为false，则返回靠的false（见false就返回）
+
+
+            ||  或运算
+                    如果第一个值为true，则直接返回第一个值
+                    如果第一个值为false，则直接返回第二个值
+
+        */
+
+
+        var a = true;
+        a = !a;
+        console.log(a);
+
+
+
+        var b = 1;
+        a = 0;
+        b = a&&b
+        console.log(b,typeof b);   //值为0，数据类型为number
+
+        b = !b;
+        console.log(b,typeof b);   //值为true，数据类型为Boolean
+
+
+
+
+        var c = 123;
+        var d = 2;
+        c = c && d;
+        console.log(c,typeof c); //结果由后面的值决定，所以返回2
+
+        var f = 0;
+        c = f && c;
+        console.log(c);  //结果返回靠前面的false
+
+        c = 123;
+        var e = c || d;
+        console.log(e,typeof e);  //结果由前面的值决定，所以返回123
+
+    
+    </script>
+
+
+</head>
+
+
+
+<body>
+    
+</body>
+</html>

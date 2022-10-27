@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #areDiv{
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        #showMsg{
+            width: 300px;
+            height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            /* 
+            当鼠标在areDiv移动的时候，在showMsg中显示出鼠标的坐标
+            */
+           //获取两个Div
+           var areDiv = document.getElementById("areDiv");
+           var showMsg = document.getElementById("showMsg");
+           /* 
+           onmousemove
+            该事件将会在鼠标被移动时，被触发
+
+            事件对象
+                当事件的响应函数被触发时，浏览器每次都会将事件对象作为实参，传递到响应函数
+                在事件对象中封装了当前事件相关的一切信息，比如：鼠标的坐标，键盘，哪个按键被按下，鼠标滚轮滚动的方向等
+           */
+          areDiv.onmousemove = function (event) {
+
+            /* 
+            在IE8中，响应函数被触发时，浏览器不会传递事件对象，
+                在IE8及以下的浏览器中，是将事件对象作为window对象的属性保存的
+            如果需要使用IE8，则需要加上window.对象.clientX
+
+            可以使用下面的if判断语句，也可以使用 event = event || window.event;
+            来解决事件兼容性的问题
+            
+            */
+                if(!event){
+                    var X = window.event.clientX;
+                    var Y =window.event.clientY;
+                    showMsg.innerHTML = "X = "+ X + "Y = "+ Y;
+                }
+                else{
+                    /* 
+                    clientX：获取当前鼠标指针的水平坐标
+                    clientY：获取当前鼠标指针的垂直坐标
+                    */
+
+                    var x = event.clientX;
+                    var y = event.clientY;
+                    //在showMsg中显示坐标
+                    showMsg.innerHTML = "x = " + x + "y = " + y;
+                }
+                
+            };  
+        };
+    </script>
+</head>
+<body>
+    <div id="areDiv"></div>
+    <br><br>
+    <div id="showMsg"></div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入工具 -->
+    <script src="/JS/day12/tools.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 820px;
+            height: 500px;
+            /* 居中 */
+            margin: 50px auto;
+            /* 设置背景颜色 */
+            background-color: rgb(145, 248, 248);
+            /* 设置padding */
+            padding: 10px 0;
+            /* 设置imgList */
+
+            /* 开启相对定位 */
+            position: relative;
+            /* 裁剪溢出的内容 ，将其藏起来*/
+            overflow: hidden;
+            
+        }
+        #imgList{
+            /* 设置项目符 */
+                list-style: none;
+            /* 设置ul宽度 */
+            /* width: 3600px; */
+
+            /* 开启绝对定位 */
+            position: absolute;
+
+            /* 设置偏移量
+                每向左移动820个像素单位，就会显示到下一张图片
+            */
+            left: -820px;
+
+            }
+            #imgList li{
+                /* 设置浮动 */
+                float: left;
+                /* 设置左右外边距 */
+                margin: 0 10px;
+            }
+            /* 设置导航按钮 */
+            #navDiv{
+                /* 开启绝对定位 */
+                position: absolute;
+
+                /* 设置位置 */
+                bottom: 15px;
+
+                /* 设置left值
+                    outer：宽度820
+                    a：100
+                        820 - 100 = 720
+                        因此left = 720 /2  = 360*/
+                /* left: 360px; */
+
+
+                /*  */
+
+            }
+            #navDiv a{
+                /* 设置超链接浮动 */
+                float: left;
+                width: 10px;
+                height: 10px;
+                background-color: rgb(90, 87, 87);
+                /* 设置左右外边距 */
+                margin: 0 5px;
+
+                /* 设置透明 */
+                opacity: 0.5;
+            }
+
+            /* 设置鼠标移入的效果 */
+            #navDiv a:hover{   
+                background-color: black;
+
+            }
+    </style>
+
+    <script>
+        window.onload = function () {
+            //设置imgList的宽度
+            //获取imgList
+            var imgList = document.getElementById("imgList");
+            
+
+            //获取页面中所有img标签
+            var imgs = document.getElementsByTagName("img");
+            //设置imgList的宽度
+            imgList.style.width = 820 * imgs.length + "px";
+
+
+
+            /* 设置导航按钮居中 */
+            //获取navDiv
+            var navDiv = document.getElementById("navDiv");
+            //获取outer
+            var outer = document.getElementById("outer");
+
+            //设置navDiv的left值
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px"; 
+
+
+            //默认显示图片的索引
+            var index = 0;
+
+            //获取所有的a，并设置第一张为默认效果
+            var allA = document.getElementsByTagName("a");
+            allA[index].style.backgroundColor = "black";
+
+
+
+            /* 
+            点击超链接，切换图片
+            */
+           //为所有的超链接绑定单击响应函数
+           for(var i=0; i<allA.length; i++)
+           {
+            //为每一个超链接添加一个num属性，方便获取索引
+            allA[i].num = i;
+
+            //为超链接绑定单击响应函数
+            allA[i].onclick = function(){
+
+                //关闭自动切换的定时器
+                clearInterval(timer);
+
+                //获取点击超链接的索引,如果使用let声明i，就可以获取到精准的索引值了
+                //获取到索引后，将其设置为index
+                index = this.num;
+
+                /*
+                切换图片
+                    第一张图片 索引为0  left为0px
+                    第二章图片 索引为1  left为-820px
+                    第三章图片 索引为2  left为-1640px
+                */
+
+                //imgList.style.left = -820 * index  +"px";
+
+                //修改正在选中的a
+                setA();
+
+                //使用move函数进行切换
+                move(imgList, "left", -820*index, 20, function(){
+                    //动画执行完毕开启自动切换
+                    autoChange();
+                });
+
+                
+
+                
+
+            };
+
+           }
+            /* 
+          自动切换图片
+          */
+         autoChange();
+
+
+           var timer;
+
+
+
+            //写一个函数专门负责修改a
+            function setA(){
+
+                //判断当前索引是否是最后一张图片
+                if(index >= imgs.length - 1){
+                    //则将index设置为0
+                    index = 0;
+
+                    //此时显示的是最后一张图片，而最后一张的图片是和第一张的一模一样的
+                    //通过CSS将最后一张切换成第一张
+                    imgList.style.left=0;//设置偏移量为0，显示第一张
+                }
+
+                //遍历所有的a，并将其背景颜色设置为默认值
+                for(var i=0; i<allA.length; i++){
+                    console.log(i);
+                    //如果写入确切的背景颜色的值，则内联样式会丢失，因此可以将其置为空，将其内联样式去掉，就可以了
+                    allA[i].style.backgroundColor = "";
+                }
+
+                //将选中的a设置为黑色
+                allA[index].style.backgroundColor = "black";
+            };
+
+
+
+
+            //创建函数，开启自动切换功能
+            function autoChange(){
+                //开启定时器，用来定时切换图片
+                timer = setInterval(function(){
+                    
+                    //判断index的值
+                    index %= imgs.length;
+                    //执行动画，切换图片
+                    move(imgList, "left", -820*index, 20, function(){
+                        //修改导航按钮
+                        setA();
+                    }); 
+                    //console.log(index);
+                    //使索引自增
+                    index++;
+                   
+                    
+                },2000);
+            }
+
+          };
+
+        
+
+
+          
+
+          
+
+
+    </script>
+</head>
+<body>
+    <!-- 创建外部的div -->
+    <div id="outer">
+        <!-- 创建ul，用来放置图片 -->
+        <ul id="imgList">
+            <li>
+                <img src="/JS/day12/img/01.jpg" width="800" height="500" >
+            </li>
+
+            <li>
+                <img src="/JS/day12/img/02.jpg"  width="800" height="500">
+            </li>
+
+            <li>
+                <img src="/JS/day12/img/03.jpg"  width="800" height="500">
+            </li>
+
+            <li>
+                <img src="/JS/day12/img/04.jpg"  width="800" height="500">
+            </li>
+
+            <li>
+                <img src="/JS/day12/img/01.jpg" width="800" height="500" >
+            </li>
+        </ul>
+        <!-- 创建导航按钮 -->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        onload事件  会在页面或者图片加载完后才触发
+            为window绑定一个onload事件
+            这样可以确保我们的代码执行所有的DOM对象已经加载完毕了
+            
+        如果想要将触发事件的代码写到前面部分的script标签里，则需要写在onload函数里面
+            如下：
+        */
+        window.onload =function(){
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+            alert("hello");
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id ="btn">
+        点我一下
+    </button>
+    <script>
+
+        /* 
+        浏览器加载页面的顺序是自上向下的顺序加载的，
+            读取到一行就运行一行
+            将JS代码写到下部就是为了，可以在页面加载完毕后在执行js代码
+        */
+        //获取id为btn的按钮
+        // var btn = document.getElementById("btn");
+        // btn.onclick = function(){
+        //     alert("hello");
+        // };
+    </script>
+</body>
+</html>

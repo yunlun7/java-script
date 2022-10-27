@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /* 
+        函数：
+            1、函数也是一个对象
+            2、函数中可以封装一些功能（代码）。在需要时可以执行这些代码
+            
+        
+        创建一个函数对象：
+            语法： var 函数名 = new Function();  在实际开发中用的较少
+            可以将要封装的代码以字符串形式传递给构造函数，封装到函数中的代码不会立即执行，会在函数调用的时执行
+        
+        函数的调用：
+            语法：函数对象();
+
+        函数声明(创建)：
+            语法：function 函数名(形参1，形参2，形参3...)      括号内的参数可写，可不写
+                {
+                    函数体
+                }
+
+        函数创建：通过函数表达式来创建
+                语法：var 函数名 = function(形参1，形参2，形参3...){
+                    函数体
+                }
+        */
+        var fun = new Function("console.log('这是我的第一个函数');");
+        fun();
+        console.log(fun,typeof fun);  //打印出函数的结构，类型为Function
+
+        function fun2(){
+            console.log("这是我的第二个函数");
+        }
+        console.log(fun2); 
+        fun2();
+
+
+        var fun3 = function(){
+            console.log("我是一个匿名函数");
+        };//需要添加分号，因为其等式本质就是赋值语句
+        fun3();
+
+
+
+
+
+
+
+
+
+        /* 
+        函数的参数
+            在函数的()中指定一个或多个形参
+
+            调用函数解析器不会检查实参的类型和数量，因此需要注意是否可能会接收到非法的参数
+            如果有可能，则需要对参数进行类型的检查
+
+            调用函数解析器不会检查实参的数量，而多余的数据不会被执行
+            如果实参的数量少于形参的数量，则没有对应实参的形参将是undefined
+
+            函数的实参可以是任意的数据类型
+        
+        */
+        function fun5(a,b){
+            console.log(a+b);
+        }
+        var c = 10;
+        var d = 20;
+        fun5(c,d);
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

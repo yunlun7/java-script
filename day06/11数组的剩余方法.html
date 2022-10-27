@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr =["孙悟空","猪八戒","沙和尚"];
+        var arr1 =["白骨金","铁扇公主","玉兔精"];
+        /* 
+        方法1：contact()
+            可以连接两个或多个数组，并返回新数组
+            该方法不会对原数组产生影响
+
+        方法2：join()
+            该方法可以将数组转换为字符串
+            可以指定一个字符串作为参数，这个字符串将会成为数组中的连接符，如果不指定，则默认逗号为连接符
+
+        方法3：reverse()
+            该方法可以反转数组
+            会改变原数组
+
+        方法4：sort()
+            对数组进行排序
+            会影响原数组，会按照Unicode进行排序，数字数组同样，因此可能会得到错误的排序
+            可以自己指定排序的规则
+                在sort()中添加一个回调函数，来指定调用的回调函数
+                浏览器将会分别使用数组中的元素作为实参去回调函数
+                使用哪个元素调用不确定，但是肯定的是在数组中a一定在b前面
+            浏览器会根据回调函数的返回值来决定元素的顺序
+                如果返回一个大于0的值，则元素会交换位置
+                如果返回一个小于0的值，则元素位置不变
+                如果返回一个0，则认为这两个元素相等，也不交换位置
+
+            如果要升序排序，则返回a-b
+            如果要降序排序，则返回b-a
+        */
+       var result = arr.concat(arr,arr1);
+       console.log(result);
+
+       var result1 = arr.join();
+       console.log(result1);
+
+       arr.reverse();
+       console.log(arr);
+
+       var arr2 = ["c","r","a","f","b"];
+       arr2.sort();
+       console.log(arr2);
+
+       var arr3 = [3,2,5,4,1];
+       arr3.sort(function(a,b){
+        return a - b;//升序排列
+        //return b - a;  //降序排列
+       });
+       console.log(arr3);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

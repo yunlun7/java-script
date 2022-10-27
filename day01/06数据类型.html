@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        /*
+        在js中一共有6中数据类型
+            String    字符串
+            Number    数值
+            Boolean   布尔值
+            Null      空值
+            Undefine  未定义
+            Object    对象
+
+        其中String,Number,Boolean,Null,Undefine属于基本数据类型
+        而Object属于引用数据类型
+
+        */ 
+
+
+
+        /*
+        1、String 字符串
+            -在使用时，需要引用符号装起来
+            -使用双引号，单引号都可以
+            -相同的引号不能嵌套，只能单双引号混着用
+            -在字符串中可以使用\，作为转义字符，表示特殊符号时可以使用\进行转义
+                \"表示一个"
+                \'表示一个'
+                \n表示换行
+                \t表示制表符
+                \\表示一个\
+        */ 
+       var str = "hello";
+       var str1 ='hello';
+
+       var str2 = "我说：\"今天天气挺好。\" ";
+       console.log(str,str1,str2);
+
+
+
+
+        /*
+        2、Number 数值
+            -包括证书和浮点数
+            -可以使用typeof来检查变量的类型
+                检查到字符串时，会返回String
+                检查到数字时，会返回Number
+            - JS中可以保存变量的最大值，Number.MAX_VALUE
+                值为 1.7976931348623157e+308
+                如果表示的数字超过最大值，则会返回一个Infinity(表示正无穷大，它是一个字面量),-Infinity(表示正无穷大)
+            - JS中还可以保存变量的最小值，Number.MIN_VALUE
+                值为5e-324,大于0的最小正值
+            -可以使用运算符
+                整数的运算基本可以保证精确
+                如果使用浮点数运算，则会得到一个不精准的结果，因此JS不适用于计算精确度较高的运算
+            -NaN 表示一个特殊数字，表示Not A Number
+                使用typeof检查，也会返回一个number
+        */    
+       var num = 2;
+       var num1 = 2;
+       var num2 = 2.34;
+       console.log(num,num*num1,num-num1,num2-num,typeof num2,);
+       console.log(Number.MAX_VALUE,Number.MIN_VALUE);
+
+
+
+
+        /*
+        3、Boolean  布尔值
+            
+        */    
+       var bool = true;
+       console.log(bool,typeof bool);
+
+
+
+        /*
+        4、Null 空值
+            只有一个值，就是null
+            null这个值专门用来表示一个为空的对象
+            使用typeof检查数据类型时，会返回一个Object
+        */    
+       var d = null;
+       console.log(d,typeof d);
+
+
+        /*
+        5、Undefined 未定义
+            只有一个值，就是undefined
+            当声明一个变量，但不赋值时，它的值就是undefined
+        */    
+       var u;
+       console.log(u);
+    </script>
+</head>
+
+
+
+<body>
+    
+</body>
+</html>

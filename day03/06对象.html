@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+    /* 
+    Object 对象，当遇到的数据类型，只要不是String、Number、Boolean、Null、Undefined其中的，那此数据类型为对象
+                属于复合数据类型，在对象中可以保存多个不同的数据类型的属性
+    基本数据类型中，值与值之间没有任何联系，所创建的变量都是独立的，不能成为一个整体
+
+
+    对象的分类：
+        1、内建对象，由ES标准中定义的对象，在任何的ES的实现中都可以使用
+            比如：Math、String、Number、Boolean、Function、Object...
+        2、宿主对象，由JS的运行环境提供的对象，目前主要指由浏览器提供的对象
+            比如BOM、DOM
+        3、自定义对象
+            由开发人员自己创建
+
+
+
+     */
+
+     //创建对象
+     var obj = new Object();  //使用new关键字来调用的函数，是构造函数
+     console.log(obj,typeof obj);
+
+     /*
+     可以向对象中添加属性
+     语法结构： 对象.属性名=属性值;
+     */
+
+     obj.name="大王";
+     obj.gender = "男";
+     obj.age =19;
+
+     /* 
+     读取对象中的属性
+        语法：对象.属性名
+        如果读取对象没有的属性，不会报错，而是返回Undefined
+     */
+     console.log(obj.name,obj.gender,obj.age);
+
+
+     /* 
+     修改对象的属性名
+        语法：对象.属性名 = 新值
+     */
+    obj.age=30;
+    console.log(obj.age);//返回30
+
+    /* 
+    删除对象的属性
+        语法：delete 对象.属性名
+    */
+    delete obj.gender;//返回undefined
+
+
+</script>
+</head>
+
+<body>
+    
+</body>
+</html>

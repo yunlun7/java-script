@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+    /* 
+    创建一个对象：
+    */        
+        var obj = new Object();
+
+        //添加属性
+        obj.name="li li";
+        obj.age=19;
+
+        //对象的属性值可以是任意类型的数据，也可以是函数
+        obj.sayName= function(){
+            console.log("我的名字是：" + obj.name);
+        }
+
+        function fun(){
+            console.log("调函数" + obj.name);
+        }
+
+
+        console.log(obj.name,obj.age,obj.sayName,typeof obj.sayName);
+        obj.sayName();  //调方法
+        fun();  //调函数
+
+
+        /*
+        函数也可以称为对象的属性
+            如果一个函数作为一个对象的属性保存，那就称这个函数为这个对象的方法
+            调用函数就说调用对象的方法(method)
+            这种只是名称上的区别，没有其他任何区别。有对象的叫方法，没有对象的叫函数
+        
+        */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* 
+        枚举对象中的属性：使用for  in 语句
+            语法：for(var 变量 in 对象){
+
+            }
+        */
+        var obj = {
+            name:"孙",
+            age:18,
+            gender:"男",
+            address:"花果山"
+
+            }
+
+
+            for(var n in obj){
+               // console.log("hello");  //返回值为： 数字  hello 其中的数字便是变量的个数
+                console.log(n);  //分别打印出对象中的属性名
+                console.log(obj[n]); //分别打印对饮的属性名的值
+            }
+
+
+    </script>
+
+</head>
+
+
+
+<body>
+    
+</body>
+</html>

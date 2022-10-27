@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /*
+        将其他值转换为布尔值
+            使用Boolean()函数
+        
+        */ 
+
+        var a = 12;
+        a = Boolean(a);
+        console.log(a,typeof a);  //true
+
+        a = -12;
+        a = Boolean(sa);
+        console.log(a,typeof a);  //true
+
+        a = "asd";
+        a = Boolean(a);
+        console.log(a,typeof a);  //true
+
+
+
+
+
+        a = 0;
+        a = Boolean(a);
+        console.log(a,typeof a);  //false
+
+        a = null;
+        a = Boolean(a);
+        console.log(a,typeof a);  //false
+
+        a = undefined;
+        a = Boolean(a);
+        console.log(a,typeof a);  //false
+
+
+        a = "";
+        a = Boolean(a);
+        console.log(a,typeof a);  //false
+
+    </script>    
+</head>
+<body>
+    
+</body>
+</html>

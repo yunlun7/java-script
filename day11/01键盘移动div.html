@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+
+    <style type="text/css">
+        #box1{
+            width: 80px;
+            height: 80px;
+            background-color: yellow;
+            position: absolute;
+        }
+
+
+    </style>
+
+    <script type="text/javascript">
+        /* 
+        使div可以根据不同的方向键向不同的方向移动
+         按左键，向做移动
+         按右键，向右移动
+        
+        */
+
+    
+        window.onload = function () {
+            //为document绑定一个按键事件
+            document.onkeydown = function(event){
+                event = event || window.event;
+
+
+                /* 
+                定义一个变量，表示移动的速度
+                */
+                var speed = 10;
+                //当用户按下Ctrl键，速度加快
+                if(event.ctrlKey){
+                    speed += 20;
+                }
+
+
+
+                /* 
+                37 左
+                38 上
+                39 右
+                40 下
+                
+                */
+                switch(event.keyCode){
+                    case 37:
+                        //alert("left");
+                        //向左移，left值变小
+                        box1.style.left = box1.offsetLeft - speed + "px";
+                        break;
+                    case 38:
+                        //alert("top");
+                        //向上移，top值变小
+                        box1.style.top = box1.offsetTop - speed + "px";
+                        break;
+                    case 39:
+                        //alert("right");
+                        //向右移，right值变大
+                        
+                        box1.style.left = box1.offsetLeft + speed + "px";
+                        break;
+                    case 40:
+                        //alert("button");
+                        //向下移，button值变大
+                        box1.style.top = box1.offsetTop + speed + "px";
+                        break;
+                    default:
+                        break;
+                }
+            };
+        };
+
+
+    </script>
+
+</head>
+
+<body>
+
+<div id="box1"></div>
+
+</body>
+
+</html>

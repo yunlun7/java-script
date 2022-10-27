@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: beige;
+            position: absolute;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            /* 
+            拖拽box1元素：
+                -拖拽的流程：
+                    1、当鼠标在被拖拽元素按下时，开始拖拽  onmousedown
+                    2、当鼠标移动时，被拖拽元素跟随鼠标移动  onmousemove
+                    3、当鼠标松开时，被拖拽元素固定在当前  onmouseup
+            */
+
+            //获取box1
+            var box1 = document.getElementById("box1");
+            box1.onmousedown = function(){
+                //为document绑定onmousemove
+                document.onmousemove = function(event){
+                    event = event || window.event;
+
+                    //获取鼠标坐标
+                    var left = event.clientX;
+                    var top = event.clientY;
+
+                    //修改box1的位置
+                    box1.style.left=left+"px";
+                    box1.style.top=top+"px";
+                };
+
+
+
+                //为元素绑定一个鼠标松开事件
+                //此处不能写box1.onmouseup，如果这样写，那当元素移动到box2时，此事件就失效了
+                document.onmouseup = function(){
+                    //当鼠标松开时，被拖拽元素固定在当前
+                    //取消document的onmousemove事件
+                    document.onmousemove = null;
+
+                    //取消document的onmouseup事件，使该事件为一次性事件，否则事件结束后，鼠标在元素之外的地方，任意点击都事件onmouseup还存在
+                    document.onmouseup = null;
+                }
+            }
+        };
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+</body>
+
+</html>

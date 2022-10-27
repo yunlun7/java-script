@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        break 可以退出switch或循环语句，不能用于for循环
+                会立即终止离他最近的那个循环
+        不能在if中使用break和continue
+
+
+        */
+
+
+        // 可以通过循环语句创建一个label，来标识当前的循环
+        //语法结构：  label:循环语句
+
+        label:
+        for(var i = 0; i < 5; i++){
+            console.log("@外层循环"+i);
+            for(var j = 0; j < 5; j++){
+                break label; //此处直接终止外层循环
+                console.log("内层循环"+j);
+            }
+        }
+
+
+
+
+
+        /* 
+        continue  可以跳过当前循环
+        */
+        for(var i = 0; i < 5; i++){
+            if(i == 2){
+                continue;
+            }
+            console.log(i);
+        }
+
+
+        for(var i = 0; i < 5; i++){
+            for(var j = 0; j < 5; j++){
+                if(j == 4){
+                    continue;//只结束内层循环
+                }
+                console.log(j);
+            }
+            
+        }
+
+
+
+        //程序执行时间的计算：console.time("计时器的名字")  开启计时器
+        console.time("test");
+
+        //打印2-100之间所有的质数
+        for(var i = 2; i < 100; i++){
+            var flag = true;
+            for(var j = 2; j < i; j++){
+                if(i % j == 0){
+                    flag = false;
+                    break; //不加break时间是 0.65 ms。而加了break时间是0.24 ms
+                }
+            }
+            if(flag){
+                
+            }
+
+        }
+
+        console.timeEnd("test")  //用来停止计时器,console.timeEnd("计时器的名字")
+
+        
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

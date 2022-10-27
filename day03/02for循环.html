@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+    /* 
+    for语句：
+        语法：for(初始表达式;条件表达式;更新表达式){
+            循环体
+        }
+    
+    
+    */
+   var i = 10;
+   for(;i > 0;){
+    i--;
+    console.log(i);
+   }
+   
+
+   var num = 1;
+   var count = 0;
+   for(; num <= 100; num++)
+   {
+    
+    if(num % 2 != 0)
+    {
+        count += num;
+        
+    }
+    
+   }
+   console.log(count);
+
+   var num1 = 1;
+   var count1 = 0;
+   var count2 = 0;
+   for(; num1 <= 100; num1++){
+    if(num1 % 7 == 0){
+        count1 += 1;
+        count2 += num1;
+    }
+   }
+   console.log(count1,count2);
+
+    for(var i = 100; i < 1000; i++)
+    {
+        var bai = parseInt(i / 100);
+        var shi = parseInt((i - bai * 100) / 10);
+        var ge  = i % 10;
+
+        var shuixianhua = parseInt(bai*bai*bai + shi*shi*shi +ge*ge*ge);
+
+        if(shuixianhua == i)
+        {
+            console.log(shuixianhua);
+        }
+        
+    } 
+    
+
+    
+        var num2 = prompt("请输入一个大于1的数：");
+        var flag = true;
+        
+        for(var i = 2; i < num2; i++){
+            if(num2 % i == 0){
+                flag = false;
+            }
+        }
+      
+        if(flag == true)
+             alert("该数是质数");
+        else
+            alert("该数字不是质数");
+       
+    
+    
+</script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
