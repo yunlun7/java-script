@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>变量的内存结构</title>
+</head>
+<body>
+  <script>
+    /* 
+    字面量是直接存到内存中的
+    变量不直接存储任何值，而是存储值的内存地址
+
+    变量类似于是，给字面量取别名，如下：
+    变量a被赋予'哈哈哈'，内存中如果没有'哈哈哈'这值，则会内存中开启一个新空间，存放'哈哈哈'
+    变量b也被赋予'哈哈哈'，但是此时内存中已经有这个值了，因此会将'哈哈哈'的地址直接赋值给变量b
+    */
+    let a ='哈哈哈';
+    let b = '哈哈哈';
+  </script>
+</body>
+</html>
