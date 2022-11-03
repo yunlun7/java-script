@@ -12,21 +12,28 @@
             语法：对象名 = {}
 
         2、直接指定对象中的属性（这种方式用得较多）
-            语法：{属性名：属性值，
-                属性名，属性值....}
+            语法：{
+                属性名：属性值，
+                [属性名]:属性值
+                ....
+            }
 
             属性名和属性值是一组一组的名值对结构
         */
-       var obj = {};
+       let obj = {};
        console.log(typeof obj,obj);
         obj.name="li li";
        console.log(obj.name);
 
+       let mySymbol = Symbol();
 
-       var obj2 = {name:"hua hua",
+
+       let obj2 = {name:"hua hua",
                     age:14,
                     gender:"女",
-                    test:{name:"沙僧"}};
+                    test:{name:"沙僧"},
+                    [mySymbol]:"特殊属性"
+                };
     
        console.log(obj2,obj2.name,obj2.test,obj2.test.name);
     </script>

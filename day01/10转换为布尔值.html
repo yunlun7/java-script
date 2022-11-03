@@ -10,10 +10,23 @@
         /*
         将其他值转换为布尔值
             使用Boolean()函数
+            转换情况：
+                数字：
+                    -0 和 和NaN 转换为false
+                    -其余都是true
+                字符串：
+                    -空串转换为 false
+                    -其余都是true
+                null和undefined 都转换为false
+
+                对象： 转换为true
+
+                所有表示空性的，没有的，错误的，false都会转换为false
+
         
         */ 
 
-        var a = 12;
+        let a = 12;
         a = Boolean(a);
         console.log(a,typeof a);  //true
 

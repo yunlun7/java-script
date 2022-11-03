@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+/* 
+    原始值都属于不可变类型，一旦创建就无法修改
+    在内存中不会创建重复的原始值
+
+*/
+
+let a = 10;
+let b = 10;
+
+console.log("a = ", a);
+console.log("b = ", b);
+
+
+
+
+/* 
+    对象属于可变类型
+    对象创建完后，可以任意的添加删除对象中的属性
+    注意：
+      -当比较两个对象时，实际上是在比较对象的内存地址
+      -如果有两个变量同时指向一个对象，
+        通过一个变量修改对象是，对另外一个变量也会产生影响
+        
+*/
+
+let obj = Object();
+obj.name = '孙悟空';
+obj.age = 18;
+
+console.log(obj);
+
+
+let obj2 = Object();
+let obj3 = Object();
+console.log(obj2 === obj3); // false  内存地址不同
+
+
+let obj4 = obj;
+
+obj4.name = "猪八戒"
+
+console.log(obj4 === obj); // true  指向同一个内存地址
+
+console.log(obj);
+  </script>
+</body>
+</html>

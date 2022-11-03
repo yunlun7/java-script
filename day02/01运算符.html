@@ -24,26 +24,41 @@
                 %  余
                 ++ 自加
                 -- 自减
+                ** 幂运算
         */ 
 
 
         var result = "123" + "456";
-        console.log(result);
+        console.log(result); //123456
 
         //连接字符串
         var result1 = "abc"+
                       "def"+
                       "ghi;";
-        console.log(result1);
+        console.log(result1); // abcdefghi
 
         result1 = 123 + "abc";
-        console.log(result1,typeof result1);
+        console.log(result1,typeof result1); // 123abc  string   隐式类型转换
 
-        result = 1 + 2 + "3";  //值为33
-        console.log(result);
+        /* 
+        隐式类型转换：
+            可以通过任意类型 + 一个空串的形式来将其转换为字符串
+            如：项目中常用计算像素值： 123 + 'px'  ===>> '123px'
+        */
+
+
+        result = 1 + 2 + "3";  
+        console.log(result);    //值为33
 
         result = 100 - "1";
-        console.log("result = "+result);
+        console.log("result = "+result); // 99
+
+        result = 10 ** 2;
+        console.log(result); // 100
+
+
+        result = 6- NaN;
+        console.log(result); //NaN 
 
 
     </script>

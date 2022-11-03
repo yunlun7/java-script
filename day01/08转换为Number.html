@@ -23,21 +23,21 @@
                     如果对非String使用parseInt()或者parseFloat()，会先转换为String，再操作
         */ 
 
-        var a = "123";
-        var b = "asd";
+        let a = "123";
+        let b = "asd";
         a = Number(a);
         b = Number(b);
         console.log(a,typeof a,b,typeof b);
 
-        var c = "200px";
+        let c = "200px";
         c = parseInt(c);
         console.log(c,typeof c);
 
-        var d = "200g2344x";
+        let d = "200g2344x";
         d = parseInt(d);
         console.log(d,typeof d);
 
-        var e = true;
+        let e = true;
         e = parseInt(e);
         console.log(e,typeof e);
     </script>

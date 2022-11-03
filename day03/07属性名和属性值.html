@@ -22,27 +22,41 @@
             语法："属性名" in 对象
         */
 
-        var obj = new  Object();
+        let obj = Object();
         obj["123"] = 456;
         console.log(obj["123"]);
 
         obj["nin"] = "你好";
-        var n = "123";
+        let n = "123";
         console.log(obj["nin"]);
         console.log(obj[n]);  //相当于字典，找到n对应的字符串，然后去找该属性，再返回属性值。所以返回的结果为456
 
 
-
-
         obj.test=true;
-        var obj2 = new Object();
+        let obj2 = new Object();
         obj2.name = "花花";
         obj.test = obj2;
         console.log(obj.test.name);  //返回值为花花
 
 
         console.log("name"in obj2); //返回值为true
-         
+
+
+
+
+
+        /* 
+        使用Symbol设置的属性通常是不希望被外界访问的属性
+        */
+
+
+        let mySymbol = Symbol();
+
+        // 使用Symbol作为属性名
+        obj[mySymbol] = '通过Symbol添加的属性';
+        console.log(obj[mySymbol]); // 取值
+        console.log(obj);
+
 
     </script>
 
